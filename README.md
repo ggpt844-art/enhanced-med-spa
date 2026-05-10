@@ -9,7 +9,7 @@ The website for Razan Shahrour's private, home-based medical aesthetics studio i
 - **Next.js 16** App Router · **React 19** · **TypeScript**
 - **Tailwind v4** (CSS-first via `@theme`)
 - **framer-motion** for scroll-reveal · **lucide-react** for icons
-- **Fresha** embed for booking
+- **Calendly** embed for booking
 
 ## Run locally
 

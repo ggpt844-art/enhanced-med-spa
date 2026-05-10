@@ -677,7 +677,7 @@ export default function Home() {
             Ready to <span className="italic text-[#E8C4BD]">glow?</span>
           </h2>
           <p className="mt-4 text-white/85 text-[15px] leading-relaxed">
-            Book on Fresha — most clients are seen within the week. The
+            Book on Calendly — most clients are seen within the week. The
             studio address is shared after booking.
           </p>
           <div className="mt-8 flex flex-col gap-3">
@@ -686,7 +686,7 @@ export default function Home() {
               className="rounded-full bg-[#C9A66A] text-[#1A1A1A] px-6 py-4 font-bold text-[16px] inline-flex items-center justify-center gap-2 hover:bg-[#E7D4A9] transition-colors shadow-lg"
             >
               <Calendar size={18} />
-              Book on Fresha
+              Book on Calendly
             </Link>
             <a
               href={`tel:${SPA.phone}`}

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Phone, MessageCircle, Mail, MapPin, Clock, ChevronRight, Calendar } from "lucide-react";
 import { SPA, NAV_LINKS } from "@/lib/spa";
 import { hours } from "@/lib/content";
-import { InstagramIcon, GoogleIcon, FreshaIcon } from "./SocialIcons";
+import { InstagramIcon, GoogleIcon } from "./SocialIcons";
 import LeafMark from "./LeafMark";
 import Reveal from "./Reveal";
 
@@ -147,7 +147,7 @@ export default function SiteFooter() {
             ))}
           </ul>
           <p className="mt-4 text-white/60 text-[12px] leading-relaxed">
-            Same hours, every day — by appointment only. Book on Fresha to
+            Same hours, every day — by appointment only. Book on Calendly to
             secure your time.
           </p>
         </div>
@@ -164,13 +164,13 @@ export default function SiteFooter() {
             <InstagramIcon />
           </a>
           <a
-            href={SPA.social.fresha}
+            href={SPA.social.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Fresha booking"
+            aria-label="Book on Calendly"
             className="grid place-items-center w-11 h-11 rounded-full bg-white/5 ring-1 ring-white/10 hover:bg-[#C9A66A] hover:text-[#1A1A1A] transition-colors"
           >
-            <FreshaIcon />
+            <Calendar size={18} />
           </a>
           <a
             href={SPA.social.google}

@@ -14,14 +14,14 @@ import SiteFooter from "@/components/SiteFooter";
 import FloatingNav from "@/components/FloatingNav";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Reveal from "@/components/Reveal";
-import FreshaEmbed from "@/components/FreshaEmbed";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 import ContactForm from "@/components/ContactForm";
 import { SPA, SITE_URL } from "@/lib/spa";
 
 export const metadata: Metadata = {
-  title: "Book on Fresha — Enhanced Aesthetics Medi Spa Mississauga",
+  title: "Book on Calendly — Enhanced Aesthetics Medi Spa Mississauga",
   description:
-    "Book your appointment with Razan at Enhanced Aesthetics Medi Spa in Mississauga. Real-time availability through Fresha — most clients are seen within the week.",
+    "Book your appointment with Razan at Enhanced Aesthetics Medi Spa in Mississauga. Pick a time on Calendly — most clients are seen within the week.",
   alternates: { canonical: `${SITE_URL}/book` },
 };
 
@@ -75,11 +75,11 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* Fresha embed */}
+      {/* Calendly embed */}
       <section className="px-5 py-16 bg-[#F8F1EC]">
         <div className="max-w-4xl mx-auto">
           <Reveal>
-            <FreshaEmbed />
+            <CalendlyEmbed />
           </Reveal>
         </div>
       </section>

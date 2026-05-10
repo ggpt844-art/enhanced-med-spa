@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, Phone, MessageCircle, Calendar } from "lucide-react";
 import LeafMark from "./LeafMark";
 import { InstagramIcon } from "./SocialIcons";
-import { NAV_LINKS } from "@/lib/spa";
+import { NAV_LINKS_CHROME } from "@/lib/spa";
 
 type Props = {
   phone: string;
@@ -23,7 +23,7 @@ export default function MobileMenu({ phone, phoneDisplay, whatsapp, igUrl }: Pro
         onClick={() => setOpen(true)}
         aria-label="Open menu"
         aria-expanded={open}
-        className="grid place-items-center w-11 h-11 rounded-full hover:bg-[#1A1A1A]/5 text-[#1A1A1A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0E4F4A] lg:hidden"
+        className="grid place-items-center w-11 h-11 rounded-full hover:bg-[#1A1A1A]/5 text-[#1A1A1A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0E4F4A] md:hidden"
       >
         <Menu size={26} />
       </button>
@@ -46,26 +46,25 @@ export default function MobileMenu({ phone, phoneDisplay, whatsapp, igUrl }: Pro
             </button>
           </div>
           <nav className="flex flex-col gap-1 flex-1">
-            {NAV_LINKS.map((link) => (
+            {NAV_LINKS_CHROME.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="py-3.5 text-2xl font-display font-semibold text-[#1A1A1A]/90 hover:text-[#0E4F4A] transition-colors border-b border-black/10 flex items-center justify-between"
+                className={`py-3.5 text-2xl font-display font-semibold border-b border-black/10 flex items-center justify-between transition-colors ${
+                  link.label === "Book"
+                    ? "text-[#0E4F4A] hover:text-[#1A6F68]"
+                    : "text-[#1A1A1A]/90 hover:text-[#0E4F4A]"
+                }`}
               >
-                <span>{link.label}</span>
+                <span className="flex items-center gap-2">
+                  {link.label === "Book" ? <Calendar size={22} strokeWidth={2} /> : null}
+                  {link.label}
+                </span>
               </Link>
             ))}
           </nav>
           <div className="mt-8 flex flex-col gap-2.5">
-            <Link
-              href="/book"
-              onClick={() => setOpen(false)}
-              className="rounded-full bg-[#0E4F4A] text-white px-6 py-4 text-base font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#0E4F4A]/20"
-            >
-              <Calendar size={18} />
-              Book on Fresha
-            </Link>
             <a
               href={`tel:${phone}`}
               onClick={() => setOpen(false)}

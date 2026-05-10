@@ -101,7 +101,7 @@ export default function SkinQuiz() {
           href="/book"
           className="block mt-4 text-[#0E4F4A] text-sm font-semibold underline-offset-4 hover:underline"
         >
-          Or skip · book on Fresha
+          Or skip · book on Calendly
         </Link>
       </div>
     );

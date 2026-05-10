@@ -232,7 +232,7 @@ export const fallbackReviews: FallbackReview[] = [
 ];
 
 /**
- * Razan is open 11–6 every day per Birdeye + Fresha listings.
+ * Razan is open 11–6 every day per studio schedule (confirm on Google / Calendly).
  */
 export const hours = [
   { day: "Monday", time: "11:00 AM – 6:00 PM" },
@@ -296,7 +296,7 @@ export const firstVisitSteps = [
   {
     title: "Book online or message",
     blurb:
-      "Pick a time on Fresha, or message Razan on Instagram if you have questions first. You'll get the address after booking.",
+      "Pick a time on Calendly, or message Razan on Instagram if you have questions first. You'll get the address after booking.",
   },
   {
     title: "Arrive at the studio",
@@ -387,7 +387,7 @@ export const beforeAfters = [
 export const faqItems: FaqItem[] = [
   {
     q: "Where exactly is the studio?",
-    a: "The studio is a private treatment room inside a residential home in Mississauga (Erin Mills area, 3449 Covent Crescent, L5M 7P1). The full address is shared after you book on Fresha. There's quiet street parking and you walk straight in — no waiting room, no foot traffic.",
+    a: "The studio is a private treatment room inside a residential home in Mississauga (Erin Mills area, 3449 Covent Crescent, L5M 7P1). The full address is shared after you book on Calendly. There's quiet street parking and you walk straight in — no waiting room, no foot traffic.",
   },
   {
     q: "Is it safe? It's a home, not a clinic.",
@@ -403,7 +403,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "How are payments handled?",
-    a: "Booking on Fresha holds your spot. Payment is taken at the studio at the end of your session — debit, credit, e-transfer, or cash. You'll see exact pricing before you book.",
+    a: "Booking on Calendly holds your spot. Payment is taken at the studio at the end of your session — debit, credit, e-transfer, or cash. You'll see availability and timing when you pick your slot.",
   },
   {
     q: "What's your cancellation policy?",
@@ -415,7 +415,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "Do you sell gift cards?",
-    a: "Yes — digital gift cards are available year-round through Fresha. They're the most-requested gift on the IG grid. Mother's Day, birthdays, weddings, and 'I survived the year' all qualify.",
+    a: "Yes — digital gift cards are available. Message Razan on Instagram or ask at your appointment; she'll send the link or details. They're the most-requested gift on the IG grid. Mother's Day, birthdays, weddings, and 'I survived the year' all qualify.",
   },
 ];
 

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Calendar, Phone } from "lucide-react";
 import LeafMark from "./LeafMark";
+import { NAV_LINKS_CHROME } from "@/lib/spa";
 
 type Props = {
   phone: string;
@@ -44,19 +45,18 @@ export default function FloatingNav({ phone }: Props) {
           <LeafMark size={26} />
           <span className="text-[13.5px] font-bold tracking-tight">Home</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-5 text-[13px] font-semibold text-[#1A1A1A]/75 px-2">
-          <Link href="/services" className="hover:text-[#0E4F4A] transition-colors">
-            Services
-          </Link>
-          <Link href="/results" className="hover:text-[#0E4F4A] transition-colors">
-            Results
-          </Link>
-          <Link href="/about" className="hover:text-[#0E4F4A] transition-colors">
-            About
-          </Link>
-          <Link href="/reviews" className="hover:text-[#0E4F4A] transition-colors">
-            Reviews
-          </Link>
+        <nav className="hidden md:flex items-center gap-4 lg:gap-5 text-[12.5px] lg:text-[13px] font-semibold text-[#1A1A1A]/75 px-1">
+          {NAV_LINKS_CHROME.filter(
+            (l) => l.label !== "Book" && l.label !== "Home",
+          ).map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="hover:text-[#0E4F4A] transition-colors whitespace-nowrap"
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
         <div className="flex items-center gap-2">
           <a

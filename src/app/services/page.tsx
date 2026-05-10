@@ -74,7 +74,7 @@ export default function ServicesPage() {
                 className="inline-flex items-center gap-2 rounded-full bg-[#0E4F4A] text-white px-7 py-3.5 font-bold text-sm hover:bg-[#1A6F68] transition-colors shadow-md shadow-[#0E4F4A]/20"
               >
                 <Calendar size={16} />
-                Book on Fresha
+                Book on Calendly
               </Link>
               <a
                 href="#consult"
@@ -101,7 +101,7 @@ export default function ServicesPage() {
               <strong className="text-[#1A1A1A]">Menu pricing:</strong>{" "}
               Published amounts match Razan&apos;s Instagram story menu (and the
               list below). Sessions are still customized — your total is always
-              confirmed when you book on Fresha.
+              confirmed when you book on Calendly.
             </span>
           </div>
           <p className="max-w-2xl text-[12.5px] text-[#4A4A4A] leading-relaxed">
@@ -301,7 +301,7 @@ export default function ServicesPage() {
             Ready to glow?
           </h2>
           <p className="mt-3 text-[#4A4A4A] text-[15px] leading-relaxed">
-            Book your treatment on Fresha — most clients are seen within the
+            Book your treatment on Calendly — most clients are seen within the
             week.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
@@ -310,7 +310,7 @@ export default function ServicesPage() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0E4F4A] text-white px-7 py-4 font-bold text-[15px] hover:bg-[#1A6F68] transition-colors shadow-lg shadow-[#0E4F4A]/20"
             >
               <Calendar size={16} />
-              Book on Fresha
+              Book on Calendly
             </Link>
             <a
               href={`tel:${SPA.phone}`}

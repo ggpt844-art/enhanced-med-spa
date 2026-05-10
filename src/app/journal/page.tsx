@@ -143,7 +143,7 @@ export default function JournalPage() {
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#0E4F4A] text-white px-7 py-4 font-bold text-[15px] hover:bg-[#1A6F68] transition-colors shadow-lg shadow-[#0E4F4A]/20"
           >
             <Calendar size={16} />
-            Book on Fresha
+            Book on Calendly
           </Link>
         </div>
       </section>

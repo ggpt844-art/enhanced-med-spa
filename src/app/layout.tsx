@@ -60,14 +60,14 @@ export const metadata: Metadata = {
     title:
       "Enhanced Aesthetics Medi Spa | Private Med Spa in Mississauga, ON",
     description:
-      "Private, home-based medical aesthetics in Mississauga. 4.9★ from 66+ Google reviews. Book your glow on Fresha.",
+      "Private, home-based medical aesthetics in Mississauga. 4.9★ from 66+ Google reviews. Book your glow on Calendly.",
   },
   twitter: {
     card: "summary_large_image",
     title:
       "Enhanced Aesthetics Medi Spa | Private Med Spa in Mississauga, ON",
     description:
-      "Private, home-based medical aesthetics in Mississauga. 4.9★ from 66+ Google reviews. Book your glow on Fresha.",
+      "Private, home-based medical aesthetics in Mississauga. 4.9★ from 66+ Google reviews. Book your glow on Calendly.",
   },
   alternates: {
     canonical: SITE_URL,
@@ -159,7 +159,7 @@ const localBusinessSchema = {
     "@type": "ReserveAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: SPA.freshaUrl,
+      urlTemplate: SPA.calendlyUrl,
       actionPlatform: [
         "http://schema.org/DesktopWebPlatform",
         "http://schema.org/MobileWebPlatform",
@@ -170,7 +170,7 @@ const localBusinessSchema = {
       name: "Spa appointment",
     },
   },
-  sameAs: [SPA.social.instagram, SPA.social.fresha, SPA.social.google],
+  sameAs: [SPA.social.instagram, SPA.social.calendly, SPA.social.google],
 };
 
 const websiteSchema = {

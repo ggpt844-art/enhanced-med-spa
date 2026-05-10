@@ -53,20 +53,20 @@ export const SPA = {
    * (Generic Maps search URLs do not reliably open “leave a review” for the business.)
    */
   googleWriteReviewUrl: `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`,
-  /** Fresha booking page for embed + deep link. */
-  freshaUrl:
-    "https://www.fresha.com/lvp/enhanced-aesthetics-medi-spa-covent-crescent-mississauga-yXWVjW",
-  /** Fallback booking link Razan already uses today. */
+  /** Calendly — primary booking link + embed on /book. */
   calendlyUrl: "https://calendly.com/enhancedaesthetics",
   social: {
     instagram: "https://www.instagram.com/enhancedaesthetics.spa/",
     instagramHandle: "@enhancedaesthetics.spa",
     google: `https://www.google.com/maps/search/?api=1&query_place_id=${GOOGLE_PLACE_ID}`,
-    fresha:
-      "https://www.fresha.com/lvp/enhanced-aesthetics-medi-spa-covent-crescent-mississauga-yXWVjW",
+    calendly: "https://calendly.com/enhancedaesthetics",
   },
 } as const;
 
+/**
+ * Sitemap-style order for footer (includes Home).
+ * Story order: explore the site, then Book.
+ */
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
@@ -76,5 +76,8 @@ export const NAV_LINKS = [
   { label: "Journal", href: "/journal" },
   { label: "Book", href: "/book" },
 ] as const;
+
+/** Header + mobile drawer (same order as `NAV_LINKS`, including Home first). */
+export const NAV_LINKS_CHROME = NAV_LINKS;
 
 export const SITE_URL = "https://enhancedaesthetics.ca";

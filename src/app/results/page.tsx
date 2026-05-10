@@ -106,7 +106,7 @@ export default function ResultsPage() {
               className="rounded-full bg-[#C9A66A] text-[#1A1A1A] px-6 py-4 font-bold text-[16px] inline-flex items-center justify-center gap-2 hover:bg-[#E7D4A9] transition-colors shadow-lg"
             >
               <Calendar size={18} />
-              Book on Fresha
+              Book on Calendly
             </Link>
             <a
               href={`tel:${SPA.phone}`}

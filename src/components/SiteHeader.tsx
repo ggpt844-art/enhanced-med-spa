@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Calendar } from "lucide-react";
 import LeafMark from "./LeafMark";
 import MobileMenu from "./MobileMenu";
-import { SPA, NAV_LINKS } from "@/lib/spa";
+import { SPA, NAV_LINKS_CHROME } from "@/lib/spa";
 
 /**
  * Shared header used on every page.
@@ -22,12 +22,16 @@ export default function SiteHeader() {
       </Link>
 
       {/* Desktop nav */}
-      <nav className="hidden lg:flex items-center gap-7 text-[14px] font-semibold text-[#1A1A1A]/75">
-        {NAV_LINKS.filter((l) => l.label !== "Book").map((l) => (
+      <nav className="hidden md:flex items-center gap-4 lg:gap-7 text-[13px] lg:text-[14px] font-semibold text-[#1A1A1A]/75">
+        {NAV_LINKS_CHROME.map((l) => (
           <Link
             key={l.label}
             href={l.href}
-            className="hover:text-[#0E4F4A] transition-colors"
+            className={
+              l.label === "Book"
+                ? "text-[#0E4F4A] hover:text-[#1A6F68] transition-colors"
+                : "hover:text-[#0E4F4A] transition-colors"
+            }
           >
             {l.label}
           </Link>
@@ -37,7 +41,7 @@ export default function SiteHeader() {
       <div className="flex items-center gap-2">
         <Link
           href="/book"
-          className="hidden sm:inline-flex rounded-full bg-[#0E4F4A] text-white px-5 py-2.5 text-sm font-bold hover:bg-[#1A6F68] transition-colors items-center gap-2 shadow-md shadow-[#0E4F4A]/20"
+          className="hidden sm:inline-flex md:hidden rounded-full bg-[#0E4F4A] text-white px-5 py-2.5 text-sm font-bold hover:bg-[#1A6F68] transition-colors items-center gap-2 shadow-md shadow-[#0E4F4A]/20"
         >
           <Calendar size={15} />
           Book Now
