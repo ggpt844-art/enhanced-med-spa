@@ -123,28 +123,15 @@ export default function Home() {
                 </span>
               </div>
 
-              <div className="mx-auto mt-8 flex max-w-xl flex-col items-center gap-4 border-t border-white/20 pt-7 text-white sm:flex-row sm:justify-center sm:gap-8">
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/15 text-white shadow-md ring-2 ring-white/25 backdrop-blur-sm">
-                    <Sparkles size={16} />
-                  </span>
-                  <span className="text-left">
-                    {SPA.shortName}
-                    <span className="block text-[11px] font-normal text-white/75">
-                      {SPA.address.city}, ON
-                    </span>
-                  </span>
-                </div>
-                <a
-                  href={SPA.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-semibold text-white/85 transition-colors hover:text-white"
-                >
-                  <InstagramIcon size={14} />
-                  {SPA.social.instagramHandle}
-                </a>
-              </div>
+              <a
+                href={SPA.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mx-auto mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-white/85 transition-colors hover:text-white"
+              >
+                <InstagramIcon size={14} />
+                {SPA.social.instagramHandle}
+              </a>
             </Reveal>
           </div>
         </div>
