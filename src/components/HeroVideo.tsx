@@ -65,14 +65,22 @@ export default function HeroVideo({
 
   if (!src) {
     return (
-      <div className={`relative ${className}`}>
-        <Placeholder label={placeholderLabel} caption={placeholderCaption} />
+      <div
+        className={`relative min-h-[100dvh] w-full lg:min-h-[100svh] ${className}`}
+      >
+        <Placeholder
+          label={placeholderLabel}
+          caption={placeholderCaption}
+          className="min-h-[100dvh] lg:min-h-[100svh]"
+        />
       </div>
     );
   }
 
   return (
-    <div className={`relative ${className}`}>
+    <div
+      className={`relative min-h-[100dvh] w-full lg:min-h-[100svh] ${className}`}
+    >
       <video
         ref={videoRef}
         autoPlay={!reduced}
@@ -89,7 +97,7 @@ export default function HeroVideo({
         type="button"
         onClick={toggle}
         aria-label={playing ? "Pause video" : "Play video"}
-        className="absolute top-4 right-4 grid place-items-center w-10 h-10 rounded-full bg-black/50 backdrop-blur-md text-white ring-1 ring-white/15 hover:bg-black/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A66A]"
+        className="absolute top-4 right-4 z-20 grid place-items-center w-10 h-10 rounded-full bg-black/50 backdrop-blur-md text-white ring-1 ring-white/15 hover:bg-black/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A66A]"
       >
         {playing ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
       </button>

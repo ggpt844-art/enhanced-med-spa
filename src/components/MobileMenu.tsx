@@ -12,9 +12,17 @@ type Props = {
   phoneDisplay: string;
   whatsapp: string;
   igUrl: string;
+  /** Light icons / chrome for use on dark photo or video heroes. */
+  lightChrome?: boolean;
 };
 
-export default function MobileMenu({ phone, phoneDisplay, whatsapp, igUrl }: Props) {
+export default function MobileMenu({
+  phone,
+  phoneDisplay,
+  whatsapp,
+  igUrl,
+  lightChrome = false,
+}: Props) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -23,7 +31,11 @@ export default function MobileMenu({ phone, phoneDisplay, whatsapp, igUrl }: Pro
         onClick={() => setOpen(true)}
         aria-label="Open menu"
         aria-expanded={open}
-        className="grid place-items-center w-11 h-11 rounded-full hover:bg-[#1A1A1A]/5 text-[#1A1A1A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0E4F4A] md:hidden"
+        className={`grid place-items-center w-11 h-11 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A66A] md:hidden ${
+          lightChrome
+            ? "text-white hover:bg-white/15"
+            : "hover:bg-[#1A1A1A]/5 text-[#1A1A1A]"
+        }`}
       >
         <Menu size={26} />
       </button>

@@ -16,8 +16,8 @@ import FloatingNav from "@/components/FloatingNav";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import Reveal from "@/components/Reveal";
 import HeroVideo from "@/components/HeroVideo";
+import Reveal from "@/components/Reveal";
 import HomeReviewsSection from "@/components/HomeReviewsSection";
 import CountUp from "@/components/CountUp";
 import FAQ from "@/components/FAQ";
@@ -56,87 +56,90 @@ export default function Home() {
       />
 
       {/* ────────────────────────── HERO ────────────────────────── */}
-      <section className="relative bg-[#F8F1EC] overflow-hidden">
+      <section className="relative h-[100dvh] flex-col overflow-hidden text-white flex">
+        {/* Video background — single absolute layer, no wrappers */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/images/hero-studio.png"
+          className="pointer-events-none absolute z-0 object-cover object-center max-lg:inset-0 max-lg:h-full max-lg:w-full lg:inset-auto lg:left-1/2 lg:top-1/2 lg:h-[125%] lg:w-[125%] lg:-translate-x-1/2 lg:-translate-y-1/2"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         <div
           aria-hidden
-          className="drift-x pointer-events-none absolute -top-40 -right-40 w-[460px] h-[460px] rounded-full bg-[#0E4F4A] opacity-[0.07] blur-[120px]"
-        />
-        <div
-          aria-hidden
-          className="drift-y pointer-events-none absolute top-1/3 -left-40 w-[360px] h-[360px] rounded-full bg-[#E8C4BD] opacity-[0.55] blur-[120px]"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/45 from-0% to-transparent to-[42%]"
         />
 
-        <SiteHeader />
+        <SiteHeader overMedia />
 
-        <div className="relative px-5 pt-6 md:pt-12 pb-12 lg:pb-20">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white border border-[#0E4F4A]/15 px-3.5 py-1.5 text-[11px] tracking-[0.2em] uppercase text-[#0E4F4A] font-bold mb-7 shadow-sm">
-              <Sparkles size={12} />
-              Private home studio · Mississauga
-            </div>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto px-5 pb-14 pt-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:pb-20 lg:overflow-visible">
+          <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center text-center max-lg:py-4">
+            <Reveal>
+              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-sm backdrop-blur-md">
+                <Sparkles size={12} className="text-[#E7D4A9]" />
+                Private home studio · Mississauga
+              </div>
 
-            <h1 className="font-display text-[46px] sm:text-[62px] md:text-[76px] leading-[0.98] font-black tracking-[-0.02em]">
-              Skin that <span className="italic text-[#0E4F4A]">glows.</span>
-              <br />
-              Confidence you can <span className="italic text-[#0E4F4A]">feel.</span>
-            </h1>
-            <p className="mt-7 text-[#4A4A4A] text-[16px] sm:text-[17px] leading-relaxed max-w-lg mx-auto">
-              Result-driven facials, hydrabrasion, acne care, and body
-              treatments — one client at a time, with{" "}
-              <strong className="text-[#1A1A1A]">{SPA.founder.name}</strong>.
-            </p>
+              <h1 className="font-display text-[46px] font-black leading-[0.98] tracking-[-0.02em] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:text-[56px] md:text-[64px] lg:text-[72px]">
+                Skin that <span className="italic text-[#E8C4BD]">glows.</span>
+                <br />
+                Confidence you can <span className="italic text-[#E8C4BD]">feel.</span>
+              </h1>
+              <p className="mx-auto mt-7 max-w-lg text-[16px] leading-relaxed text-white/90 sm:text-[17px] drop-shadow-[0_1px_12px_rgba(0,0,0,0.35)]">
+                Result-driven facials, hydrabrasion, acne care, and body
+                treatments — one client at a time, with{" "}
+                <strong className="font-semibold text-white">{SPA.founder.name}</strong>.
+              </p>
 
-            <div className="mt-9 grid sm:grid-cols-[auto_auto] gap-3 justify-center items-center">
-              <Link
-                href="/book"
-                className="group rounded-full bg-[#0E4F4A] text-white px-7 py-4 font-bold text-[15px] inline-flex items-center justify-center gap-2 hover:bg-[#1A6F68] transition-all shadow-xl shadow-[#0E4F4A]/25 hover:shadow-[#0E4F4A]/40 hover:-translate-y-0.5"
-              >
-                <Calendar size={18} />
-                Book Your Glow
-              </Link>
-              <a
-                href="#results"
-                className="rounded-full border border-[#1A1A1A]/15 text-[#1A1A1A] px-6 py-4 font-semibold text-[15px] inline-flex items-center justify-center gap-2 hover:bg-[#1A1A1A]/5 transition-colors"
-              >
-                See real results
-                <ChevronRight size={16} />
-              </a>
-            </div>
+              <div className="mt-9 grid items-center justify-center gap-3 sm:grid-cols-[auto_auto]">
+                <Link
+                  href="/book"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#0E4F4A] px-7 py-4 text-[15px] font-bold text-white shadow-xl shadow-black/30 transition-all hover:bg-[#1A6F68] hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  <Calendar size={18} />
+                  Book Your Glow
+                </Link>
+                <a
+                  href="#results"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/45 bg-white/10 px-6 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/18"
+                >
+                  See real results
+                  <ChevronRight size={16} />
+                </a>
+              </div>
 
-            <div className="mt-6 flex items-center justify-center gap-3 text-[12.5px] text-[#4A4A4A]">
-              <span className="flex items-center gap-1.5">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#C9A66A] opacity-75 animate-ping" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C9A66A]" />
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[12.5px] text-white/85">
+                <span className="flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#C9A66A] opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C9A66A]" />
+                  </span>
+                  <strong className="text-white">Now booking this week</strong>
                 </span>
-                <strong className="text-[#1A1A1A]">Now booking this week</strong>
-              </span>
-              <span aria-hidden className="opacity-30">·</span>
-              <span className="flex items-center gap-1 text-[#0E4F4A] font-semibold">
-                <Star size={12} fill="currentColor" /> {SPA.rating} ·{" "}
-                {SPA.reviewCount}+ Google reviews
-              </span>
-            </div>
+                <span aria-hidden className="hidden opacity-40 sm:inline">
+                  ·
+                </span>
+                <span className="flex items-center gap-1 font-semibold text-[#E7D4A9]">
+                  <Star size={12} fill="currentColor" /> {SPA.rating} ·{" "}
+                  {SPA.reviewCount}+ Google reviews
+                </span>
+              </div>
+            </Reveal>
           </div>
 
           <Reveal delay={150}>
-            <div className="mt-12 max-w-md lg:max-w-lg mx-auto relative">
-              <HeroVideo
-                src="/videos/hero.mp4"
-                placeholderLabel="Cinematic studio video"
-                placeholderCaption="Razan's hands working under warm light"
-                objectPositionClass="object-[center_58%] sm:object-[center_56%]"
-                className="rounded-[28px] overflow-hidden aspect-[4/5] shadow-2xl shadow-black/15 ring-1 ring-black/5"
-              />
-            </div>
-            <div className="relative max-w-md lg:max-w-lg mx-auto mt-8 sm:mt-10 px-2 flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2 text-[#1A1A1A] text-sm font-semibold">
-                <span className="grid place-items-center w-9 h-9 rounded-full bg-[#0E4F4A] text-white ring-2 ring-[#F8F1EC] shadow-md">
+            <div className="mx-auto mt-10 flex w-full max-w-xl items-center justify-between gap-3 border-t border-white/20 pt-8 text-white">
+              <div className="flex items-center gap-2 text-sm font-semibold">
+                <span className="grid size-9 place-items-center rounded-full bg-white/15 text-white shadow-md ring-2 ring-white/25 backdrop-blur-sm">
                   <Sparkles size={16} />
                 </span>
                 <span>
                   {SPA.shortName}
-                  <span className="block text-[11px] font-normal text-[#4A4A4A]">
+                  <span className="block text-[11px] font-normal text-white/75">
                     {SPA.address.city}, ON
                   </span>
                 </span>
@@ -145,7 +148,7 @@ export default function Home() {
                 href={SPA.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[#4A4A4A] text-[12.5px] font-semibold hover:text-[#0E4F4A] transition-colors"
+                className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-semibold text-white/85 transition-colors hover:text-white"
               >
                 <InstagramIcon size={14} />
                 {SPA.social.instagramHandle}
