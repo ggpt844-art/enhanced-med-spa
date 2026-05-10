@@ -16,7 +16,7 @@ import FloatingNav from "@/components/FloatingNav";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import HeroVideo from "@/components/HeroVideo";
+import HeroBackgroundVideo from "@/components/HeroBackgroundVideo";
 import Reveal from "@/components/Reveal";
 import HomeReviewsSection from "@/components/HomeReviewsSection";
 import CountUp from "@/components/CountUp";
@@ -58,17 +58,11 @@ export default function Home() {
       {/* ────────────────────────── HERO ────────────────────────── */}
       <section className="relative h-[100dvh] flex-col overflow-hidden text-white flex">
         {/* Video background — single absolute layer, no wrappers */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
+        <HeroBackgroundVideo
+          src="/videos/hero.mp4"
           poster="/images/hero-studio.png"
           className="pointer-events-none absolute z-0 object-cover object-center max-lg:inset-0 max-lg:h-full max-lg:w-full lg:inset-auto lg:left-1/2 lg:top-1/2 lg:h-[125%] lg:w-[125%] lg:-translate-x-1/2 lg:-translate-y-1/2"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
+        />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/45 from-0% to-transparent to-[42%]"
