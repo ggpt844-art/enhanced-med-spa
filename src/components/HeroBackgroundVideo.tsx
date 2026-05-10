@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+/** Bump when replacing `public/videos/hero.mp4` so phones drop stale cache. */
+const MP4_CACHE_KEY = 4;
+
+/** Bump when replacing the hero poster image so phones drop stale cache. */
+const POSTER_CACHE_KEY = 1;
 
 /** Drop a weak / duplicate opening (~12–15f at 30fps). */
 const TRIM_START_SEC = 0.48;
@@ -11,14 +17,24 @@ type Props = {
   className?: string;
 };
 
+function cacheBustUrl(url: string, key: number) {
+  const sep = url.includes("?") ? "&" : "?";
+  return `${url}${sep}cb=${key}`;
+}
+
 /**
  * Full-bleed hero video with trimmed loop window.
- * Mobile Safari is picky: seek only after data is buffered (`canplay`), loop via `ended` only.
+ * Mobile: poster `<img>` on top of `<video>` (same z-index, later in DOM) until first `seeked` so t=0 / cache flash doesn’t show.
  */
 export default function HeroBackgroundVideo({ src, poster, className = "" }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
   const pendingPlay = useRef<"initial" | "loop" | null>(null);
   const started = useRef(false);
+  const trimReadyRef = useRef(false);
+  const [trimReady, setTrimReady] = useState(false);
+
+  const videoSrc = cacheBustUrl(src, MP4_CACHE_KEY);
+  const posterSrc = cacheBustUrl(poster, POSTER_CACHE_KEY);
 
   useEffect(() => {
     const video = ref.current;
@@ -27,6 +43,10 @@ export default function HeroBackgroundVideo({ src, poster, className = "" }: Pro
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const onSeeked = () => {
+      if (!trimReadyRef.current) {
+        trimReadyRef.current = true;
+        setTrimReady(true);
+      }
       if (!pendingPlay.current) return;
       pendingPlay.current = null;
       if (!reduce) void video.play();
@@ -82,8 +102,24 @@ export default function HeroBackgroundVideo({ src, poster, className = "" }: Pro
   }, []);
 
   return (
-    <video ref={ref} muted playsInline preload="auto" poster={poster} className={className}>
-      <source src={src} type="video/mp4" />
-    </video>
+    <>
+      {/* Video first in DOM: with shared `z-0`, poster `<img>` below paints on top and hides decode/seek flash (iOS). */}
+      <video
+        ref={ref}
+        muted
+        playsInline
+        preload="auto"
+        className={`${className} transition-opacity duration-200 ease-out ${trimReady ? "opacity-100" : "opacity-0"}`}
+      >
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+      <img
+        src={posterSrc}
+        alt=""
+        aria-hidden
+        className={`${className} transition-opacity duration-200 ease-out pointer-events-none ${trimReady ? "opacity-0" : "opacity-100"}`}
+        decoding="async"
+      />
+    </>
   );
 }
