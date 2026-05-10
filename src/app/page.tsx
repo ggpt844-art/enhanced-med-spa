@@ -56,7 +56,7 @@ export default function Home() {
       />
 
       {/* ────────────────────────── HERO ────────────────────────── */}
-      <section className="relative flex min-h-[100dvh] flex-col overflow-hidden text-white">
+      <section className="relative flex h-[100dvh] flex-col overflow-hidden text-white">
         {/* Video background — single absolute layer, no wrappers */}
         <HeroBackgroundVideo
           src="/videos/hero.mp4"
@@ -70,7 +70,7 @@ export default function Home() {
 
         <SiteHeader overMedia />
 
-        <div className="relative z-10 flex flex-1 flex-col px-5 pb-14 pt-2 md:pb-20">
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col px-5 pb-14 pt-2 md:pb-20">
           <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center text-center max-lg:py-4">
             <Reveal>
               <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-sm backdrop-blur-md">
