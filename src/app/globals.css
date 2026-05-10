@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Enhanced Aesthetics brand palette */
+  --color-spa-deep: #0E4F4A;
+  --color-spa-mid: #1A6F68;
+  --color-spa-soft: #C4D8D3;
+  --color-spa-tint: #E5EFEC;
+
+  --color-champagne: #C9A66A;
+  --color-champagne-soft: #E7D4A9;
+
+  --color-blush: #E8C4BD;
+  --color-blush-soft: #F4DFD9;
+
+  --color-ivory: #F8F1EC;
+  --color-ivory-soft: #FDF8F3;
+
+  --color-ink: #1A1A1A;
+  --color-ink-soft: #4A4A4A;
+  --color-ink-mute: #6B6B6B;
+}
+
+html,
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Subtle film-grain texture for ivory sections */
+.bg-noise-light {
+  position: relative;
+}
+.bg-noise-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Visible focus rings — accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-spa-deep);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-spa-deep);
+  outline-offset: 3px;
+}
+
+/* Smooth scroll respects reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Display serif utility */
+.font-display {
+  font-family: var(--font-serif);
+  font-feature-settings: "ss01", "ss02";
+}
+
+/* Gentle drift for hero blur orbs */
+@keyframes drift-soft-x {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(20px, -12px, 0); }
+}
+@keyframes drift-soft-y {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-14px, 18px, 0); }
+}
+.drift-x { animation: drift-soft-x 24s ease-in-out infinite; }
+.drift-y { animation: drift-soft-y 30s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .drift-x, .drift-y { animation: none !important; }
+}
+
+/* Hairline gold rule used as a divider */
+.rule-gold {
+  background: linear-gradient(
+    to right,
+    transparent 0,
+    var(--color-champagne) 50%,
+    transparent 100%
+  );
+}
+
+/* Cinematic gradient for placeholder image tiles. */
+.placeholder-spa {
+  background:
+    radial-gradient(120% 80% at 30% 20%, rgba(232, 196, 189, 0.55), transparent 60%),
+    radial-gradient(120% 80% at 80% 80%, rgba(201, 166, 106, 0.35), transparent 60%),
+    linear-gradient(135deg, #0E4F4A 0%, #1A6F68 50%, #0E4F4A 100%);
+}
+
+/* Wavy section divider helper */
+.divider-curve-down::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 28px;
+  background: inherit;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'><path d='M0 0 C 300 60 900 60 1200 0 L 1200 60 L 0 60 Z' fill='black'/></svg>") no-repeat bottom / 100% 100%;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'><path d='M0 0 C 300 60 900 60 1200 0 L 1200 60 L 0 60 Z' fill='black'/></svg>") no-repeat bottom / 100% 100%;
+  pointer-events: none;
+}
